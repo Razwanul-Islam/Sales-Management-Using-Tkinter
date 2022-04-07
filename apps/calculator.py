@@ -2,7 +2,7 @@
 from tkinter import *
 def calculator():
     calculatorWindow = Tk()
-    calculatorWindow.title("Calculator")
+    calculatorWindow.title("Sales management system: Calculator")
 
 
     #create text entry box
@@ -24,7 +24,7 @@ def calculator():
     btn_add = Button(calculatorWindow, text="+", padx=39, pady=20)
     btn_substract = Button(calculatorWindow, text="-", padx=40, pady=20)
     btn_equal = Button(calculatorWindow, text="=", padx=40, pady=20)
-    btn_clear = Button(calculatorWindow, text="Clear", padx=40, pady=20)
+    btn_clear = Button(calculatorWindow, text="Clear", padx=36, pady=20)
     btn_multiply = Button(calculatorWindow, text="*", padx=40, pady=20)
     btn_divide = Button(calculatorWindow, text="/", padx=40, pady=20)
 

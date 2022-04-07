@@ -105,4 +105,3 @@ def notepad():
 
     # display the window
     notepadWindow.mainloop()
-
