@@ -6,7 +6,6 @@ from tkinter.filedialog import askopenfile,asksaveasfile
 
 #create an object to create a window
 def notepad():
-    global notepadWindow
     notepadWindow = Tk()
     notepadWindow.title("Sales management system: Notepad")
     notepadWindow.geometry("800x500")
