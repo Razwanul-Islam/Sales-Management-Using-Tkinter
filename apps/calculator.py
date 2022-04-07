@@ -50,12 +50,14 @@ def calculator():
     #create a function for buttons
     def button_click(number):
         current = text_entry.get()
+        current = "" if current == "Error" else current
         text_entry.delete(0, END)
         text_entry.insert(0, str(current) + str(number))
 
 
     def button_add():
         first_number = text_entry.get()
+        first_number = "0" if first_number == "Error" else first_number
         global f_num
         global math
         math = "addition"
@@ -65,6 +67,11 @@ def calculator():
 
     def button_equal():
         second_number = text_entry.get()
+        global f_num
+        if second_number == "Error":
+            second_number = 0
+        if f_num == "Error":
+            f_num = 0
         text_entry.delete(0, END)
 
         if math == "addition":
@@ -77,7 +84,10 @@ def calculator():
             text_entry.insert(0, f_num * int(second_number))
 
         if math == "division":
-            text_entry.insert(0, f_num / int(second_number))
+            if int(second_number) == 0:
+                text_entry.insert(0, "Error")
+            else:
+                text_entry.insert(0, f_num / int(second_number))
 
 
     def button_clear():
@@ -86,6 +96,7 @@ def calculator():
 
     def button_subtract():
         first_number = text_entry.get()
+        first_number = "0" if first_number == "Error" else first_number
         global f_num
         global math
         math = "subtraction"
@@ -95,6 +106,7 @@ def calculator():
 
     def button_multiply():
         first_number = text_entry.get()
+        first_number = "0" if first_number == "Error" else first_number
         global f_num
         global math
         math = "multiplication"
@@ -104,6 +116,7 @@ def calculator():
 
     def button_divide():
         first_number = text_entry.get()
+        first_number = "0" if first_number == "Error" else first_number
         global f_num
         global math
         math = "division"
