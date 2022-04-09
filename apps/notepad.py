@@ -80,8 +80,6 @@ def notepad():
 
 
 
-
-
     # edit menu
     editmenu = Menu(menubar, tearoff=0)
     editmenu.add_command(label="Undo", command=undo_text)
