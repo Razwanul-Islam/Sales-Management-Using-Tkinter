@@ -24,7 +24,7 @@ def login(window):
 
     window.destroy()  #closes the previous window
     login_window = Tk() #creates a new window for loging in
-    bg = PhotoImage(file="blurry.png")
+    bg = PhotoImage(file="./images/blurry.png")
     label1 = Label( login_window, image = bg)
     label1.place(x=0,y=0)
     login_window.title("LogIn")  #set title to the window
@@ -79,7 +79,7 @@ def signup(window):
 
     window.destroy()  #closes the previous window
     signup_window = Tk() #creates a new window for signup process
-    bg = PhotoImage(file="blurry.png")
+    bg = PhotoImage(file="./images/blurry.png")
     label1 = Label( signup_window, image = bg)
     label1.place(x=0,y=0)
     signup_window.geometry("380x360") #dimensions for new window
