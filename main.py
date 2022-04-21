@@ -4,7 +4,9 @@ from apps.calculator import calculator
 from apps.notepad import notepad
 from apps.salesinfo import SalesInfo
 from apps.addsale import AddSale
-def Main():
+from apps.reminder import Reminder
+def Main(window = None):
+    if window is not None:window.destroy()
     mainWindow = Tk()
     mainWindow.title("Sales management system: Sales info")
     mainWindow.geometry("560x360")
@@ -25,11 +27,9 @@ def Main():
     buttonSalesInfo = Button(mainWindow,text="Sales Info",width="15",command=lambda:SalesInfo(mainWindow),background="red",foreground="white",font="times 12")    
     buttonSalesInfo.grid(row=1,column=0,padx=(40,10),pady=20)
     # sales info button
-    buttonReminder = Button(mainWindow,text="Reminder",width="15",background="grey",foreground="white",font="times 12")    
+    buttonReminder = Button(mainWindow,text="Reminder",width="15",command=lambda:Reminder(mainWindow),background="grey",foreground="white",font="times 12")    
     buttonReminder.grid(row=1,column=1)
     # Add sell info
     buttonAddSale = Button(mainWindow,text="Add sale info",width="15",command=lambda:AddSale(mainWindow),background="purple",foreground="white",font="times 12")
     buttonAddSale.grid(row=1,column=2)
     mainWindow.mainloop()
-
-Main()
