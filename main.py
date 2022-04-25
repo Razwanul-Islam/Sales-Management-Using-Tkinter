@@ -5,6 +5,7 @@ from apps.notepad import notepad
 from apps.salesinfo import SalesInfo
 from apps.addsale import AddSale
 from apps.reminder import Reminder
+from apps.duereminder import DueReminder
 def Main(window = None):
     if window is not None:window.destroy()
     mainWindow = Tk()
@@ -21,7 +22,7 @@ def Main(window = None):
     buttonNotePad = Button(mainWindow, text="Notepad", width="15",command=notepad,background="green",foreground="white",font="times 12")
     buttonNotePad.grid(row=0, column=1,padx=10,pady=(120,10))
     # Due management
-    buttonDue = Button(mainWindow, text="Due management", width="15",background="orange",foreground="white",font="times 12")
+    buttonDue = Button(mainWindow, text="Due Reminder", width="15",command=lambda:DueReminder(mainWindow),background="orange",foreground="white",font="times 12")
     buttonDue.grid(row=0,column=2,padx=10,pady=(120,10))
     # sales info button
     buttonSalesInfo = Button(mainWindow,text="Sales Info",width="15",command=lambda:SalesInfo(mainWindow),background="red",foreground="white",font="times 12")    

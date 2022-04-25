@@ -12,7 +12,7 @@ def Reminder(window=NULL):
         window2.destroy()
         top = tk.Tk()
         top.title("Add reminder")
-        top.geometry("500x300")
+        top.geometry("500x360")
         bg = tk.PhotoImage(file="./images/whitishbg.png")
         bgLabel = tk.Label(top,image=bg,width=560,height=360).place(x=0,y=0)
         # Menubar
@@ -92,9 +92,9 @@ def Reminder(window=NULL):
     c.execute("SELECT * FROM reminder")
     data = c.fetchall()
     # Place events on calendar
+    cal.tag_config('reminder', background='red', foreground='yellow')
     for row in data:
         cal.calevent_create(datetime.strptime(row[0], '%Y-%m-%d'), row[1], row[2])
-    cal.tag_config('reminder', background='red', foreground='yellow')
     cal.pack(fill="both", expand=True)
 
     root.mainloop()
