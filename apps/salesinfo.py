@@ -3,6 +3,9 @@ import sqlite3
 
 def SalesInfo(window):
     window.destroy()
+    def mainWindow(window):
+        from .main import Main
+        Main(window)
     salesInfoWindow = Tk()
     salesInfoWindow.title("Sales management system: Sales Info.")
     salesInfoWindow.config(bg="white")
@@ -52,6 +55,8 @@ def SalesInfo(window):
 
     
     # Sales Info
+    back = Menu(salesInfoWindow)
+    back.add_command(label="Back",command=lambda:mainWindow(salesInfoWindow))
     # Add total sale info
     labelTotalSale = Label(salesInfoWindow, text="Total Sale",background="white",font="times 13 bold")
     labelTotalSale.grid(row=5, column=0,pady=(30,0))
@@ -68,4 +73,5 @@ def SalesInfo(window):
     remainningDue = Label(salesInfoWindow, text=getRemainningDue(),background="red",foreground="white",width=10,height=5,font="times 14 bold")
     remainningDue.grid(row=6, column=4,padx=40,pady=(10,50))
 
+    salesInfoWindow.config(menu=back)
     salesInfoWindow.mainloop()

@@ -1,13 +1,18 @@
 from cProfile import label
 from tkinter import *
-
+from tkinter import messagebox
 import sqlite3
 import os
 def AddSale(window):
     window.destroy()
+    def mainWindow(window):
+        from .main import Main
+        Main(window)
     addSaleWindow = Tk()
     addSaleWindow.title("Sales management system: Add sale info")
-    addSaleWindow.config(bg="#301122")
+    back = Menu(addSaleWindow)
+    back.add_command(label="Back",command=lambda:mainWindow(addSaleWindow))
+    addSaleWindow.config(bg="#301122",menu=back)
     image = PhotoImage(file="./images/whitishbg.png")
     labelBackground = Label(addSaleWindow,image=image)
     labelBackground.place(x=0,y=0)
@@ -22,6 +27,8 @@ def AddSale(window):
         totalAmount.delete(0,END)
         paidAmount.delete(0,END)
         dueAmount.delete(0,END)
+        messagebox.showinfo(title="Success", message="Reminder added successfully")
+        mainWindow(addSaleWindow)
 
     # Add save sale info
     labelSaleInfoSave = Label(addSaleWindow, text="Add sale info",font="times 14 bold",background="white")

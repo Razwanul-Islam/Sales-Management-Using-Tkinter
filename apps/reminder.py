@@ -1,6 +1,6 @@
 from asyncio.windows_events import NULL
 import tkinter as tk
-from tkinter import ttk
+from tkinter import Menu, ttk
 from tkinter import messagebox
 import sqlite3
 from datetime import datetime
@@ -8,6 +8,11 @@ from tkcalendar import Calendar, DateEntry
 
 def Reminder(window=NULL):
     if window is not NULL:window.destroy()
+    # importing main window
+    def mainWindow(window):
+        from .main import Main
+        Main(window)
+    
     def AddReminder(window2):
         window2.destroy()
         top = tk.Tk()
@@ -77,7 +82,8 @@ def Reminder(window=NULL):
 
     root = tk.Tk()
     root.title('Reminder')
-
+    back = Menu(root)
+    back.add_command(label="Back",command=lambda:mainWindow(root))
     bg = tk.PhotoImage(file="./images/whitishbg.png")
     bgLabel = tk.Label(root,image=bg,width=560,height=360).place(x=0,y=0)
     tk.Button(root, text='Add Reminder',background="blue",foreground="white", command=lambda:AddReminder(root)).pack(padx=10, pady=10)
@@ -96,5 +102,5 @@ def Reminder(window=NULL):
     for row in data:
         cal.calevent_create(datetime.strptime(row[0], '%Y-%m-%d'), row[1], row[2])
     cal.pack(fill="both", expand=True)
-
+    root.config(menu=back)
     root.mainloop()

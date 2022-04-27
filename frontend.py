@@ -1,8 +1,7 @@
 from ctypes import alignment
 from tkinter import *
 import sqlite3
-from PIL import ImageTk,Image
-from main import Main
+from apps.main import Main
 #create an object to create a window
 window = Tk()
 

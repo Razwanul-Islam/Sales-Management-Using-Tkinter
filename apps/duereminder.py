@@ -6,7 +6,9 @@ from datetime import datetime
 def DueReminder(window=None):
     # If has parent window , close / destroy the parent window
     if window is not None:window.destroy()
-
+    def mainWindow(window):
+        from .main import Main
+        Main(window)
     # Initialize variable and lists
     row_num = 0
     types= (
@@ -47,6 +49,10 @@ def DueReminder(window=None):
     dueReminderWindow.title("Due Reminder")
     dueReminderWindow.geometry("700x400")
 
+    # Back button
+    back = Menu(dueReminderWindow)
+    back.add_command(label="Back",command=lambda:mainWindow(dueReminderWindow))
+
     # Bg image
     bg=PhotoImage(file="./images/whitishbg.png")
     Label(dueReminderWindow,image=bg).place(x=0,y=0)
@@ -70,4 +76,5 @@ def DueReminder(window=None):
             Label(dueReminderWindow,text=row[5],font="arial 10").grid(row=row_num,column=4,padx=5,pady=5)
             row_num+=1
     # Window mainloop
+    dueReminderWindow.config(menu=back)
     dueReminderWindow.mainloop()
