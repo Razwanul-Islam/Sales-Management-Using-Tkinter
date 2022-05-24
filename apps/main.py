@@ -25,7 +25,6 @@ def Main(window = None):
     mainWindow = Tk()
     mainWindow.title("Sales management system: Sales info")
     mainWindow.geometry("560x360")
-    mainWindow.resizable(False,False)
     bg = PhotoImage(file="./images/whitishbg.png")
     bgLabel = Label(mainWindow,image=bg,width=560,height=360)
     bgLabel.place(x=0,y=0)
