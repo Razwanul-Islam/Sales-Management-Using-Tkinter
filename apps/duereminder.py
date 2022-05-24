@@ -12,12 +12,13 @@ def DueReminder(window=None):
     # Initialize variable and lists
     row_num = 0
     types= (
+        "Delay less than 3 days",
         "Delay more than 3 days",
         "Delay more than 7 days",
         "Delay more than 15 days",
         "Delay more than 1 month"
     )
-    categorize =[[],[],[],[]]
+    categorize =[[],[],[],[],[]]
     # Funcitions
 
     # due clear
@@ -36,12 +37,14 @@ def DueReminder(window=None):
         date = datetime.strptime(row[5],"%Y-%m-%d %H:%M:%S")
         dif = currentDate - date
         if dif.days>30:
-            categorize[3].append(row)
+            categorize[4].append(row)
         elif dif.days>15:
-            categorize[2].append(row)
+            categorize[3].append(row)
         elif dif.days>7:
-            categorize[1].append(row)
+            categorize[2].append(row)
         elif dif.days>3:
+            categorize[1].append(row)
+        else:
             categorize[0].append(row)
 
     # Create window

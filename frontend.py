@@ -1,4 +1,3 @@
-from ctypes import alignment
 from tkinter import *
 import sqlite3
 from apps.main import Main
